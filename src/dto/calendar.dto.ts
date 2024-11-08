@@ -1,17 +1,26 @@
 // src/dto/calendar.dto.ts
-import { Field, ObjectType } from '@nestjs/graphql';
+import { ObjectType, Field, Int } from '@nestjs/graphql';
 
-@ObjectType() // GraphQL에서 사용하기 위한 ObjectType 데코레이터
+@ObjectType() // GraphQL에서 사용할 수 있는 타입으로 지정
 export class CalendarEvent {
-  @Field()
-  title: string;
+  @Field(() => Int)
+  exerciseRecordId: number;
 
   @Field()
-  start: Date;
+  memberName: string;
 
   @Field()
-  end: Date;
+  exerciseName: string;
 
-  @Field({ nullable: true })
-  category?: "운동" | "복용" | "식단" | "건강검진";
+  @Field()
+  exerciseDate: string;
+
+  @Field(() => Int)
+  exerciseCount: number;
+
+  @Field()
+  exerciseTime: string;
+
+  @Field()
+  category: string;
 }

@@ -1,4 +1,4 @@
-// calendar.controller.ts
+// src/calendar/calendar.controller.ts
 import { Controller, Get, Query } from '@nestjs/common';
 import { CalendarService } from './calendar.service';
 import { CalendarEvent } from '../dto/calendar.dto';
