@@ -12,9 +12,26 @@ export class CalendarController {
     @Query('year') year?: string,
     @Query('month') month?: string,
   ): CalendarEvent[] {
-    // 문자열로 전달된 쿼리 파라미터를 숫자로 변환하여 서비스로 전달
     const yearNum = year ? parseInt(year, 10) : undefined;
     const monthNum = month ? parseInt(month, 10) : undefined;
     return this.calendarService.findAll(yearNum, monthNum);
+  }
+
+  @Get('byParams')
+  findByParams(
+    @Query('memberName') memberName?: string,
+    @Query('exerciseName') exerciseName?: string,
+  ): CalendarEvent[] {
+    return this.calendarService.findByParams(memberName, exerciseName);
+  }
+
+  @Get('exerciseTypes')
+  findExerciseTypes(): string[] {
+    return this.calendarService.findExerciseTypes();
+  }
+
+  @Get('uniqueExerciseNames')
+  findUniqueExerciseNames(): string[] {
+    return this.calendarService.findUniqueExerciseNames();
   }
 }

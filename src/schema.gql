@@ -9,9 +9,12 @@ type CalendarEvent {
   exerciseDate: String!
   exerciseCount: Int!
   exerciseTime: String!
-  category: String!
+  exerciseType: String!
 }
 
 type Query {
   calendar(year: Int, month: Int): [CalendarEvent!]!
+  calendarByParams(memberName: String, exerciseName: String): [CalendarEvent!]!
+  exerciseTypes: [String!]!
+  uniqueExerciseNames: [String!]!
 }
