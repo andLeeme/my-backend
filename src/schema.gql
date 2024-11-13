@@ -3,13 +3,14 @@
 # ------------------------------------------------------
 
 type CalendarEvent {
-  exerciseRecordId: Int!
-  memberName: String!
-  exerciseName: String!
-  exerciseDate: String!
-  exerciseCount: Int!
-  exerciseTime: String!
-  exerciseType: String!
+  exerciseRecordId: Int
+  memberName: String
+  exerciseName: String
+  exerciseDate: String
+  exerciseCount: Int
+  kcal: Int
+  exerciseTime: String
+  exerciseType: String
 }
 
 type Query {

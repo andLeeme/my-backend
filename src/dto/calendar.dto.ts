@@ -3,24 +3,27 @@ import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class CalendarEvent {
-  @Field(() => Int)
-  exerciseRecordId: number;
+  @Field(() => Int, { nullable: true })
+  exerciseRecordId?: number;
 
-  @Field()
-  memberName: string;
+  @Field({ nullable: true })
+  memberName?: string;
 
-  @Field()
-  exerciseName: string;
+  @Field({ nullable: true })
+  exerciseName?: string;
 
-  @Field()
-  exerciseDate: string;
+  @Field({ nullable: true })
+  exerciseDate?: string;
 
-  @Field(() => Int)
-  exerciseCount: number;
+  @Field(() => Int, { nullable: true })
+  exerciseCount?: number;
 
-  @Field()
-  exerciseTime: string;
+  @Field(() => Int, { nullable: true })
+  kcal?: number;
 
-  @Field()
-  exerciseType: string;
+  @Field({ nullable: true })
+  exerciseTime?: string;
+
+  @Field({ nullable: true })
+  exerciseType?: string;
 }
