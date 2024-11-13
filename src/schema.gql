@@ -3,13 +3,23 @@
 # ------------------------------------------------------
 
 type CalendarEvent {
-  exerciseRecordId: Int!
-  memberName: String!
-  exerciseName: String!
-  exerciseDate: String!
-  exerciseCount: Int!
-  exerciseTime: String!
-  exerciseType: String!
+  recordId: Int
+  userId: String
+  exerciseType: String
+  name: String
+  date: String
+  count: Int
+  kcal: Int
+  time: String
+  type: String
+  mealType: String
+  isComplished: Boolean
+  weight: Float
+}
+
+type ExerciseCategory {
+  category: String!
+  subcategories: [String!]!
 }
 
 type Query {
@@ -17,4 +27,6 @@ type Query {
   calendarByParams(memberName: String, exerciseName: String): [CalendarEvent!]!
   exerciseTypes: [String!]!
   uniqueExerciseNames: [String!]!
+  exerciseCategories: [ExerciseCategory!]!
+  exerciseCategory(category: String!): ExerciseCategory
 }

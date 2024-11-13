@@ -7,14 +7,21 @@ import { CalendarEvent } from '../dto/calendar.dto';
 export class CalendarController {
   constructor(private readonly calendarService: CalendarService) {}
 
-  @Get()
-  findAll(
-    @Query('year') year?: string,
-    @Query('month') month?: string,
+  @Get('')
+  findByFilter(
+    @Query('type') type?: string,
+    @Query('exerciseType') exerciseType?: string,
+    @Query('name') name?: string,
+    @Query('startDate') startDate?: string,
+    @Query('endDate') endDate?: string,
   ): CalendarEvent[] {
-    const yearNum = year ? parseInt(year, 10) : undefined;
-    const monthNum = month ? parseInt(month, 10) : undefined;
-    return this.calendarService.findAll(yearNum, monthNum);
+    return this.calendarService.findByParams(
+      type,
+      exerciseType,
+      name,
+      startDate,
+      endDate,
+    );
   }
 
   @Get('byParams')
